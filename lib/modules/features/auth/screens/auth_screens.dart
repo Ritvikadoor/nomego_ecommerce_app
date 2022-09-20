@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nomego_ecommerce_app/common/widgets/custom_button.dart';
 import 'package:nomego_ecommerce_app/common/widgets/custom_textfield.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 
@@ -55,7 +56,7 @@ class _AuthScreenState extends State<AuthScreen> {
       backgroundColor: GlobalVariables.greyBackgroundCOlor,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -65,6 +66,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   fontSize: 22,
                   fontWeight: FontWeight.w500,
                 ),
+              ),
+              SizedBox(
+                height: 20,
               ),
               ListTile(
                 tileColor: _auth == Auth.signup
@@ -110,14 +114,14 @@ class _AuthScreenState extends State<AuthScreen> {
                           hintText: 'Password',
                         ),
                         const SizedBox(height: 10),
-                        // CustomButton(
-                        //   text: 'Sign Up',
-                        //   onTap: () {
-                        //     if (_signUpFormKey.currentState!.validate()) {
-                        //       signUpUser();
-                        //     }
-                        //   },
-                        // )
+                        CustomButton(
+                          text: 'Sign Up',
+                          onTap: () {
+                            if (_signUpFormKey.currentState!.validate()) {
+                              signUpUser();
+                            }
+                          },
+                        )
                       ],
                     ),
                   ),
@@ -161,14 +165,14 @@ class _AuthScreenState extends State<AuthScreen> {
                           hintText: 'Password',
                         ),
                         const SizedBox(height: 10),
-                        // CustomButton(
-                        //   text: 'Sign In',
-                        //   onTap: () {
-                        //     if (_signInFormKey.currentState!.validate()) {
-                        //       signInUser();
-                        //     }
-                        //   },
-                        // )
+                        CustomButton(
+                          text: 'Sign In',
+                          onTap: () {
+                            if (_signInFormKey.currentState!.validate()) {
+                              signInUser();
+                            }
+                          },
+                        )
                       ],
                     ),
                   ),

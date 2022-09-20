@@ -1,0 +1,24 @@
+{
+  "name": "nomego_ecommerce_app",
+  "version": "1.0.0",
+  "description": "A new Flutter project.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node ./index.js",
+    "dev": "nodemon ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "http": "^0.0.1-security",
+    "mongoose": "^6.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
