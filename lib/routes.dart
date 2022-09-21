@@ -9,8 +9,8 @@ class RoutesProvider {
     ));
   }
 
-  static removeScreen({required var screen}) {
-    navigatorKey.currentState?.pushReplacement(MaterialPageRoute(
+  static removeScreen({required var screen, BuildContext? context}) {
+    Navigator.of(context!).pushReplacement(MaterialPageRoute(
       builder: (context) => screen,
     ));
   }

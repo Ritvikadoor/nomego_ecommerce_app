@@ -1,11 +1,16 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/constants/utils.dart';
+import 'package:nomego_ecommerce_app/home/screens/home_screen.dart';
 import 'package:nomego_ecommerce_app/models/user.dart';
 import 'package:http/http.dart' as http;
+import 'package:nomego_ecommerce_app/providers/users_providers.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthServices {
   void signupUser({
@@ -60,7 +65,22 @@ class AuthServices {
         },
       );
 
-      httpErrorHandling(response: res, context: context, onSuccess: () {});
+      httpErrorHandling(
+          response: res,
+          context: context,
+          onSuccess: () async {
+            final jwtdec = jsonDecode(res.body)['token'];
+            log(jwtdec.toString());
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            Provider.of<UsersProvider>(context, listen: false)
+                .setUser(res.body);
+            await prefs.setString('x-auth-token', jwtdec);
+            Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
+                (route) => false);
+            //RoutesProvider.nextScreen(screen: const HomeScreen());
+            print(res.body.toString());
+          });
     } catch (e) {
       showSnackBar(context, e.toString());
     }
