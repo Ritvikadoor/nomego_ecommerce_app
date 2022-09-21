@@ -17,11 +17,12 @@ app.use(express.json())
 app.use(authRouter);
 
 //connections
-mongoose.connect(DB)
+mongoose
+.connect(DB)
 .then(()=>{
     console.log('Connection Succesful');
 }).catch((e)=>{console.log(e);
-})
+});
 //CLIENTSIDE->>>MIDDLE WARA->>>SERVER->>>>>>>>CLIENT
 
 app.listen(PORT, "0.0.0.0",() => {
