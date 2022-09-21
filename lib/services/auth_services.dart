@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
@@ -36,6 +38,29 @@ class AuthServices {
           onSuccess: () {
             showSnackBar(context, 'Account created !');
           });
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
+  void signInUser({
+    required BuildContext context,
+    required String email,
+    required String password,
+  }) async {
+    try {
+      http.Response res = await http.post(
+        Uri.parse("$uri/api/signin"),
+        body: jsonEncode({
+          'email': email,
+          'password': password,
+        }),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+      );
+
+      httpErrorHandling(response: res, context: context, onSuccess: () {});
     } catch (e) {
       showSnackBar(context, e.toString());
     }
