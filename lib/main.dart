@@ -7,7 +7,14 @@ import 'package:nomego_ecommerce_app/services/auth_services.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (context) => UsersProvider(),
+      )
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -22,29 +29,26 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    authServices.getUserData(context: context);
+    authServices.getUserData(context);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => UsersProvider()),
-      ],
-      child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-              scaffoldBackgroundColor: GlobalVariables.backgroundColor,
-              appBarTheme: const AppBarTheme(
-                  elevation: 0,
-                  iconTheme: IconThemeData(
-                      color: GlobalVariables.greyBackgroundCOlor)),
-              colorScheme: const ColorScheme.light(
-                  primary: GlobalVariables.secondaryColor)),
-          home: UsersProvider().user.token.isNotEmpty
-              ? const HomeScreen()
-              : const AuthScreen()),
-    );
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+          colorScheme:
+              const ColorScheme.light(primary: GlobalVariables.secondaryColor),
+          appBarTheme: const AppBarTheme(
+              elevation: 0,
+              iconTheme:
+                  IconThemeData(color: GlobalVariables.greyBackgroundCOlor)),
+        ),
+        home: Provider.of<UsersProvider>(context).user.token.isNotEmpty
+            ? const HomeScreen()
+            : const AuthScreen());
   }
 }
