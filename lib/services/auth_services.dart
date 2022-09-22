@@ -2,10 +2,11 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:nomego_ecommerce_app/common/widgets/bottom_bar.dart';
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/constants/utils.dart';
-import 'package:nomego_ecommerce_app/home/screens/home_screen.dart';
+import 'package:nomego_ecommerce_app/home_/view/home_screen.dart';
 import 'package:nomego_ecommerce_app/models/user.dart';
 import 'package:http/http.dart' as http;
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
@@ -76,9 +77,11 @@ class AuthServices {
                 .setUser(res.body);
             await prefs.setBool('isLoggedIn', true);
             await prefs.setString('x-auth-token', jwtdec);
-            Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => const HomeScreen()),
-                (route) => false);
+            Navigator.pushNamedAndRemoveUntil(
+                context, BottomBar.routeName, (route) => false);
+            // Navigator.of(context).pushAndRemoveUntil(
+            //     MaterialPageRoute(builder: (context) => const HomeScreen()),
+            //     (route) => false);
             //RoutesProvider.nextScreen(screen: const HomeScreen());
             // print(res.body.toString());
           });
