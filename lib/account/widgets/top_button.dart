@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nomego_ecommerce_app/account/view_model/account_services.dart';
 import 'package:nomego_ecommerce_app/account/widgets/account_button.dart';
 
 class TopButtons extends StatelessWidget {
@@ -23,9 +24,10 @@ class TopButtons extends StatelessWidget {
         const SizedBox(height: 10),
         Row(
           children: [
-            AccountButton(text: 'Log Out', onTap: () {}
-                // AccountServices().logOut(context),
-                ),
+            AccountButton(
+              text: 'Log Out',
+              onTap: () => AccountServices().logOut(context),
+            ),
             AccountButton(
               text: 'Your Wish List',
               onTap: () {},

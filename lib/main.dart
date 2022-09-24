@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:nomego_ecommerce_app/admin/view/admin_screen.dart';
+import 'package:nomego_ecommerce_app/auth/view/auth_screens.dart';
 import 'package:nomego_ecommerce_app/common/widgets/bottom_bar.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
-import 'package:nomego_ecommerce_app/home_/view/home_screen.dart';
-import 'package:nomego_ecommerce_app/auth/view/auth_screens.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
+import 'package:nomego_ecommerce_app/routes/routes.dart';
 import 'package:nomego_ecommerce_app/services/auth_services.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider(
-        create: (context) => UsersProvider(),
-      )
-    ],
-    child: const MyApp(),
-  ));
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => UsersProvider(),
+    ),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -26,30 +24,38 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final AuthServices authServices = AuthServices();
+  final AuthServices authService = AuthServices();
 
   @override
   void initState() {
-    authServices.getUserData(context);
     super.initState();
+    authService.getUserData(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          scaffoldBackgroundColor: GlobalVariables.backgroundColor,
-          colorScheme:
-              const ColorScheme.light(primary: GlobalVariables.secondaryColor),
-          appBarTheme: const AppBarTheme(
-              elevation: 0,
-              iconTheme:
-                  IconThemeData(color: GlobalVariables.greyBackgroundCOlor)),
+      debugShowCheckedModeBanner: false,
+      title: 'Amazon Clone',
+      theme: ThemeData(
+        scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+        colorScheme: const ColorScheme.light(
+          primary: GlobalVariables.secondaryColor,
         ),
-        home: Provider.of<UsersProvider>(context).user.token.isNotEmpty
-            ? const BottomBar()
-            : const AuthScreen());
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+        ),
+        useMaterial3: true, // can remove this line
+      ),
+      onGenerateRoute: (settings) => generateRoute(settings),
+      home: Provider.of<UsersProvider>(context).user.token.isNotEmpty
+          ? Provider.of<UsersProvider>(context).user.type == 'user'
+              ? const BottomBar()
+              : const AdminScreen()
+          : const AuthScreen(),
+    );
   }
 }

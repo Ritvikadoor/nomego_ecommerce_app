@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:nomego_ecommerce_app/account/view_model/account_services.dart';
 import 'package:nomego_ecommerce_app/account/widgets/single_product.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
+import 'package:nomego_ecommerce_app/models/order.dart';
+import 'package:nomego_ecommerce_app/order_details/view/order_details.dart';
 
 class Orders extends StatefulWidget {
   const Orders({Key? key}) : super(key: key);
@@ -10,19 +13,19 @@ class Orders extends StatefulWidget {
 }
 
 class _OrdersState extends State<Orders> {
-  // List<Order>? orders;
-  // final AccountServices accountServices = AccountServices();
+  List<Order>? orders;
+  final AccountServices accountServices = AccountServices();
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   fetchOrders();
-  // }
+  @override
+  void initState() {
+    super.initState();
+    fetchOrders();
+  }
 
-  // void fetchOrders() async {
-  //   orders = await accountServices.fetchMyOrders(context: context);
-  //   setState(() {});
-  // }
+  void fetchOrders() async {
+    orders = await accountServices.fetchMyOrders(context: context);
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
