@@ -58,12 +58,12 @@ class _AddProductScreenState extends State<AddProductScreen> {
     }
   }
 
-  void selectImages() async {
-    var res = await pickImages();
-    setState(() {
-      images = res;
-    });
-  }
+  // void selectImages() async {
+  //   var res = await pickImages();
+  //   setState(() {
+  //     images = res;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +111,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         ),
                       )
                     : GestureDetector(
-                        onTap: selectImages,
+                        // onTap: selectImages,
                         child: DottedBorder(
                           borderType: BorderType.RRect,
                           radius: const Radius.circular(10),

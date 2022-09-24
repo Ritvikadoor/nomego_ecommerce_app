@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:cloudinary_public/cloudinary_public.dart';
+// import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:nomego_ecommerce_app/admin/model/sales.dart';
@@ -25,24 +25,24 @@ class AdminServices {
     final userProvider = Provider.of<UsersProvider>(context, listen: false);
 
     try {
-      final cloudinary = CloudinaryPublic('dky63hvjq', 'ks7bl2ti');
-      List<String> imageUrls = [];
+      // final cloudinary = CloudinaryPublic('dky63hvjq', 'ks7bl2ti');
+      // List<String> imageUrls = [];
 
-      for (int i = 0; i < images.length; i++) {
-        CloudinaryResponse res = await cloudinary.uploadFile(
-          CloudinaryFile.fromFile(images[i].path, folder: name),
-        );
-        imageUrls.add(res.secureUrl);
-      }
+      // for (int i = 0; i < images.length; i++) {
+      //   CloudinaryResponse res = await cloudinary.uploadFile(
+      //     CloudinaryFile.fromFile(images[i].path, folder: name),
+      //   );
+      //   imageUrls.add(res.secureUrl);
+      // }
 
-      Product product = Product(
-        name: name,
-        description: description,
-        quantity: quantity,
-        images: imageUrls,
-        category: category,
-        price: price,
-      );
+      // Product product = Product(
+      //   name: name,
+      //   description: description,
+      //   quantity: quantity,
+      //   images: imageUrls,
+      //   category: category,
+      //   price: price,
+      // );
 
       http.Response res = await http.post(
         Uri.parse('$uri/admin/add-product'),
@@ -50,7 +50,7 @@ class AdminServices {
           'Content-Type': 'application/json; charset=UTF-8',
           'x-auth-token': userProvider.user.token,
         },
-        body: product.toJson(),
+        //body: product.toJson(),
       );
 
       httpErrorHandling(
@@ -81,15 +81,15 @@ class AdminServices {
         response: res,
         context: context,
         onSuccess: () {
-          for (int i = 0; i < jsonDecode(res.body).length; i++) {
-            productList.add(
-              Product.fromJson(
-                jsonEncode(
-                  jsonDecode(res.body)[i],
-                ),
-              ),
-            );
-          }
+          // for (int i = 0; i < jsonDecode(res.body); i++) {
+          //   productList.add(
+          //     Product.fromJson(
+          //       jsonEncode(
+          //         jsonDecode(res.body)[i],
+          //       ),
+          //     ),
+          //   );
+          // }
         },
       );
     } catch (e) {

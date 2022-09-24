@@ -1,20 +1,18 @@
 import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:nomego_ecommerce_app/common/widgets/bottom_bar.dart';
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/constants/utils.dart';
-import 'package:nomego_ecommerce_app/home_/view/home_screen.dart';
 import 'package:nomego_ecommerce_app/models/user.dart';
-import 'package:http/http.dart' as http;
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class AuthServices {
-  void signupUser({
+class AuthService {
+  // sign up user
+  void signUpUser({
     required BuildContext context,
     required String email,
     required String password,
@@ -31,8 +29,9 @@ class AuthServices {
         token: '',
         cart: [],
       );
+
       http.Response res = await http.post(
-        Uri.parse("$uri/api/signup"),
+        Uri.parse('$uri/api/signup'),
         body: user.toJson(),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -40,16 +39,21 @@ class AuthServices {
       );
 
       httpErrorHandling(
-          response: res,
-          context: context,
-          onSuccess: () {
-            showSnackBar(context, 'Account created !');
-          });
+        response: res,
+        context: context,
+        onSuccess: () {
+          showSnackBar(
+            context,
+            'Account created! Login with the same credentials!',
+          );
+        },
+      );
     } catch (e) {
       showSnackBar(context, e.toString());
     }
   }
 
+  // sign in user
   void signInUser({
     required BuildContext context,
     required String email,
@@ -57,7 +61,7 @@ class AuthServices {
   }) async {
     try {
       http.Response res = await http.post(
-        Uri.parse("$uri/api/signin"),
+        Uri.parse('$uri/api/signin'),
         body: jsonEncode({
           'email': email,
           'password': password,
@@ -66,32 +70,26 @@ class AuthServices {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-
       httpErrorHandling(
-          response: res,
-          context: context,
-          onSuccess: () async {
-            final jwtdec = jsonDecode(res.body)['token'];
-            // log(jwtdec.toString());
-            SharedPreferences prefs = await SharedPreferences.getInstance();
-            Provider.of<UsersProvider>(context, listen: false)
-                .setUser(res.body);
-            await prefs.setBool('isLoggedIn', true);
-            await prefs.setString('x-auth-token', jwtdec);
-            Navigator.pushNamedAndRemoveUntil(
-                context, BottomBar.routeName, (route) => false);
-            // Navigator.of(context).pushAndRemoveUntil(
-            //     MaterialPageRoute(builder: (context) => const HomeScreen()),
-            //     (route) => false);
-            //RoutesProvider.nextScreen(screen: const HomeScreen());
-            // print(res.body.toString());
-          });
+        response: res,
+        context: context,
+        onSuccess: () async {
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          Provider.of<UsersProvider>(context, listen: false).setUser(res.body);
+          await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            BottomBar.routeName,
+            (route) => false,
+          );
+        },
+      );
     } catch (e) {
       showSnackBar(context, e.toString());
     }
   }
 
-//get user data
+  // get user data
   void getUserData(
     BuildContext context,
   ) async {

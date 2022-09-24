@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/common/widgets/custom_button.dart';
 import 'package:nomego_ecommerce_app/common/widgets/custom_textfield.dart';
@@ -21,7 +23,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Auth _auth = Auth.signup;
   final _signUpFormKey = GlobalKey<FormState>();
   final _signInFormKey = GlobalKey<FormState>();
-  final AuthServices authService = AuthServices();
+  final AuthService authService = AuthService();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
@@ -35,7 +37,8 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   void signUpUser() {
-    authService.signupUser(
+    log('signupbuttton presssed');
+    authService.signUpUser(
       context: context,
       email: _emailController.text,
       password: _passwordController.text,
@@ -44,6 +47,7 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   void signInUser() {
+    log('signinbuttton presssed');
     authService.signInUser(
       context: context,
       email: _emailController.text,
