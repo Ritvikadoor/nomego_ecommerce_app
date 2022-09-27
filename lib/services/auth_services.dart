@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:nomego_ecommerce_app/common/widgets/bottom_bar.dart';
@@ -70,10 +71,12 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
+
       httpErrorHandling(
         response: res,
         context: context,
         onSuccess: () async {
+          log(res.body.toString());
           SharedPreferences prefs = await SharedPreferences.getInstance();
           Provider.of<UsersProvider>(context, listen: false).setUser(res.body);
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
