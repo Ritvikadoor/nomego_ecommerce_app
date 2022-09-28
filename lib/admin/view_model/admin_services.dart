@@ -1,18 +1,24 @@
 import 'dart:convert';
+import 'dart:developer';
+// import 'dart:developer';
 import 'dart:io';
 // import 'package:cloudinary_public/cloudinary_public.dart';
+import 'package:cloudinary/cloudinary.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
 import 'package:nomego_ecommerce_app/admin/model/sales.dart';
-import 'package:nomego_ecommerce_app/models/order.dart';
-import 'package:nomego_ecommerce_app/models/product.dart';
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/constants/utils.dart';
+import 'package:nomego_ecommerce_app/models/order.dart';
+import 'package:nomego_ecommerce_app/models/product.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
 import 'package:provider/provider.dart';
 
 class AdminServices {
+  List<String> imageUrls = [];
+
   void sellProduct({
     required BuildContext context,
     required String name,
@@ -20,29 +26,33 @@ class AdminServices {
     required double price,
     required double quantity,
     required String category,
-    required List<File> images,
+    required List<String> images,
   }) async {
+    final ImagePicker _picker = ImagePicker();
+
     final userProvider = Provider.of<UsersProvider>(context, listen: false);
-
+    var image = await _picker.pickImage(source: ImageSource.gallery);
     try {
-      // final cloudinary = CloudinaryPublic('dky63hvjq', 'ks7bl2ti');
+      // final cloudinary = CloudinaryPublic('dky63hvjq', 'nomogo');
       // List<String> imageUrls = [];
-
-      // for (int i = 0; i < images.length; i++) {
-      //   CloudinaryResponse res = await cloudinary.uploadFile(
-      //     CloudinaryFile.fromFile(images[i].path, folder: name),
-      //   );
-      //   imageUrls.add(res.secureUrl);
-      // }
-
-      // Product product = Product(
-      //   name: name,
-      //   description: description,
-      //   quantity: quantity,
-      //   images: imageUrls,
-      //   category: category,
-      //   price: price,
+      // CloudinaryResponse response = await cloudinary.uploadFile(
+      //   CloudinaryFile.fromFile(image!.path,
+      //       resourceType: CloudinaryResourceType.Image),
       // );
+      // log(image.path.toString());
+      // log(response.toString());
+      log('Sell PRODUCT function Working');
+
+      pickImages();
+
+      Product product = Product(
+        name: name,
+        description: description,
+        quantity: quantity,
+        images: imageUrls,
+        category: category,
+        price: price,
+      );
 
       http.Response res = await http.post(
         Uri.parse('$uri/admin/add-product'),
@@ -50,7 +60,7 @@ class AdminServices {
           'Content-Type': 'application/json; charset=UTF-8',
           'x-auth-token': userProvider.user.token,
         },
-        //body: product.toJson(),
+        body: product.toJson(),
       );
 
       httpErrorHandling(
@@ -81,15 +91,15 @@ class AdminServices {
         response: res,
         context: context,
         onSuccess: () {
-          // for (int i = 0; i < jsonDecode(res.body); i++) {
-          //   productList.add(
-          //     Product.fromJson(
-          //       jsonEncode(
-          //         jsonDecode(res.body)[i],
-          //       ),
-          //     ),
-          //   );
-          // }
+          for (int i = 0; i < jsonDecode(res.body).length; i++) {
+            productList.add(
+              Product.fromJson(
+                jsonEncode(
+                  jsonDecode(res.body)[i],
+                ),
+              ),
+            );
+          }
         },
       );
     } catch (e) {
@@ -224,5 +234,37 @@ class AdminServices {
       'sales': sales,
       'totalEarnings': totalEarning,
     };
+  }
+
+  pickImages() async {
+    final cloudinary = Cloudinary.signedConfig(
+      apiKey: "621355784394787",
+      apiSecret: "t4Gz17EYvN5eGvy86y6-QHeHJ0w",
+      cloudName: "dky63hvjq",
+    );
+    ImagePicker picker = ImagePicker();
+
+    var image = await picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      log(image.path.toString());
+      final file = File(image.path).readAsBytesSync();
+
+      final response = await cloudinary.upload(
+          file: image.path,
+          fileBytes: file,
+          resourceType: CloudinaryResourceType.image,
+          folder: "nomogo",
+          fileName: image.name,
+          progressCallback: (count, total) {
+            print('Uploading image from file with progress: $count/$total');
+          });
+
+      if (response.isSuccessful) {
+        imageUrls.add(response.secureUrl!);
+
+        print('Get your image from with $imageUrls');
+      }
+    }
+    return imageUrls;
   }
 }

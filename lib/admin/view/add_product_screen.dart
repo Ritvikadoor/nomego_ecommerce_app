@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -24,7 +25,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   final AdminServices adminServices = AdminServices();
 
   String category = 'Mobiles';
-  List<File> images = [];
+  List<String> images = [];
   final _addProductFormKey = GlobalKey<FormState>();
 
   @override
@@ -45,7 +46,10 @@ class _AddProductScreenState extends State<AddProductScreen> {
   ];
 
   void sellProduct() {
+    log('workking');
+    images = AdminServices().imageUrls;
     if (_addProductFormKey.currentState!.validate() && images.isNotEmpty) {
+      log('if working');
       adminServices.sellProduct(
         context: context,
         name: productNameController.text,
@@ -58,12 +62,12 @@ class _AddProductScreenState extends State<AddProductScreen> {
     }
   }
 
-  // void selectImages() async {
-  //   var res = await pickImages();
-  //   setState(() {
-  //     images = res;
-  //   });
-  // }
+  void selectImages() async {
+    var res = await AdminServices().pickImages();
+    setState(() {
+      images = res;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +101,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         items: images.map(
                           (i) {
                             return Builder(
-                              builder: (BuildContext context) => Image.file(
+                              builder: (BuildContext context) => Image.network(
                                 i,
                                 fit: BoxFit.cover,
                                 height: 200,
@@ -111,7 +115,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         ),
                       )
                     : GestureDetector(
-                        // onTap: selectImages,
+                        onTap: selectImages,
                         child: DottedBorder(
                           borderType: BorderType.RRect,
                           radius: const Radius.circular(10),

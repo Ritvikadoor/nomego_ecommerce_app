@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 class User {
   final String id;
@@ -8,7 +9,7 @@ class User {
   final String address;
   final String type;
   final String token;
-  List<dynamic>? cart;
+  List<Map<String, dynamic>>? cart;
 
   User({
     required this.id,
@@ -34,20 +35,23 @@ class User {
     };
   }
 
-  factory User.fromMap(Map<String, dynamic> map) {
+  factory User.fromMap(Map<String, dynamic> njanMap) {
+    log("Wroking");
     return User(
-      id: map['_id'] ?? '',
-      name: map['name'] ?? '',
-      email: map['email'] ?? '',
-      password: map['password'] ?? '',
-      address: map['address'] ?? '',
-      type: map['type'] ?? '',
-      token: map['token'] ?? '',
-      cart: List<Map<String, dynamic>>.from(
-        map['cart'].map(
-          (x) => Map<String, dynamic>.from(x),
-        ),
-      ),
+      id: njanMap['_id'] ?? '',
+      name: njanMap['name'] ?? '',
+      email: njanMap['email'] ?? '',
+      password: njanMap['password'] ?? '',
+      address: njanMap['address'] ?? '',
+      type: njanMap['type'] ?? '',
+      token: njanMap['token'] ?? '',
+      // cart: List<Map<String, dynamic>>.from(njanMap["cart"])
+      // List<Map<String, dynamic>>.from(
+      //   njanMap['cart'].map(
+      //     (x) => Map<String, dynamic>.from(x),
+      //   ),
+      // ),
+      cart: [],
     );
   }
 
@@ -63,7 +67,7 @@ class User {
     String? address,
     String? type,
     String? token,
-    List<dynamic>? cart,
+    List<Map<String, dynamic>>? cart,
   }) {
     return User(
       id: id ?? this.id,

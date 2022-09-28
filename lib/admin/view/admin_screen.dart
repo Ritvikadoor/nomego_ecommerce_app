@@ -36,7 +36,7 @@ class _AdminScreenState extends State<AdminScreen> {
         child: AppBar(
           flexibleSpace: Container(
             decoration: const BoxDecoration(
-              gradient: GlobalVariables.appBarGradient,
+              color: Colors.purple,
             ),
           ),
           title: Row(
@@ -45,10 +45,10 @@ class _AdminScreenState extends State<AdminScreen> {
               Container(
                 alignment: Alignment.topLeft,
                 child: Image.asset(
-                  'assets/images/amazon_in.png',
-                  width: 120,
-                  height: 45,
-                  color: Colors.black,
+                  'assets/nmg.png',
+                  width: 160,
+                  height: 60,
+                  // color: Colors.black,
                 ),
               ),
               const Text(

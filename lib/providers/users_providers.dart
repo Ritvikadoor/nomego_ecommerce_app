@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/models/user.dart';
 
@@ -15,9 +17,11 @@ class UsersProvider extends ChangeNotifier {
 
   User get user => _user;
 
-  void setUser(String user) {
+  setUser(String user) {
     _user = User.fromJson(user);
+
     notifyListeners();
+    return true;
   }
 
   void setUserFromModel(User user) {
