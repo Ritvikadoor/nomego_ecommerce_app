@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/account/widgets/below_app.dart';
+import 'package:nomego_ecommerce_app/account/widgets/orders.dart';
 import 'package:nomego_ecommerce_app/account/widgets/top_button.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 
@@ -22,17 +23,10 @@ class AccountScreen extends StatelessWidget {
             children: [
               Container(
                 alignment: Alignment.topLeft,
-                child: Text(
+                child: const Text(
                   "Nomego",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-
-                // Image.asset(
-                //   'assets/images/amazon_in.png',
-                //   width: 120,
-                //   height: 45,
-                //   color: Colors.black,
-                // ),
               ),
               Container(
                 padding: const EdgeInsets.only(left: 15, right: 15),
@@ -58,7 +52,7 @@ class AccountScreen extends StatelessWidget {
           SizedBox(height: 10),
           TopButtons(),
           SizedBox(height: 20),
-          // Orders(),
+          Orders(),
         ],
       ),
     );

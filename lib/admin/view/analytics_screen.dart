@@ -1,5 +1,7 @@
-// import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
+import 'package:nomego_ecommerce_app/account/view_model/account_services.dart';
+import 'package:nomego_ecommerce_app/account/widgets/account_button.dart';
 import 'package:nomego_ecommerce_app/admin/model/sales.dart';
 import 'package:nomego_ecommerce_app/admin/view_model/admin_services.dart';
 import 'package:nomego_ecommerce_app/admin/widgets/catagory_products_chart.dart';
@@ -43,17 +45,29 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              // SizedBox(
-              //   height: 250,
-              //   child: CategoryProductsChart(seriesList: [
-              //     charts.Series(
-              //       id: 'Sales',
-              //       data: earnings!,
-              //       domainFn: (Sales sales, _) => sales.label,
-              //       measureFn: (Sales sales, _) => sales.earning,
-              //     ),
-              //   ]),
-              // )
+              SizedBox(
+                height: 250,
+                child: CategoryProductsChart(seriesList: [
+                  charts.Series(
+                    id: 'Sales',
+                    data: earnings!,
+                    domainFn: (Sales sales, _) => sales.label,
+                    measureFn: (Sales sales, _) => sales.earning,
+                  ),
+                ]),
+              ),
+              Row(
+                children: [
+                  AccountButton(
+                    text: 'Log Out',
+                    onTap: () => AccountServices().logOut(context),
+                  ),
+                  AccountButton(
+                    text: 'Your Wish List',
+                    onTap: () {},
+                  ),
+                ],
+              ),
             ],
           );
   }

@@ -16,8 +16,9 @@ import 'package:nomego_ecommerce_app/models/product.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
 import 'package:provider/provider.dart';
 
-class AdminServices {
+class AdminServices extends ChangeNotifier {
   List<String> imageUrls = [];
+  List<Product> productList = [];
 
   void sellProduct({
     required BuildContext context,
@@ -28,10 +29,10 @@ class AdminServices {
     required String category,
     required List<String> images,
   }) async {
-    final ImagePicker _picker = ImagePicker();
+    // final ImagePicker _picker = ImagePicker();
 
     final userProvider = Provider.of<UsersProvider>(context, listen: false);
-    var image = await _picker.pickImage(source: ImageSource.gallery);
+    // var image = await _picker.pickImage(source: ImageSource.gallery);
     try {
       // final cloudinary = CloudinaryPublic('dky63hvjq', 'nomogo');
       // List<String> imageUrls = [];
@@ -43,7 +44,7 @@ class AdminServices {
       // log(response.toString());
       log('Sell PRODUCT function Working');
 
-      pickImages();
+      // pickImages();
 
       Product product = Product(
         name: name,
@@ -74,12 +75,13 @@ class AdminServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
+    notifyListeners();
   }
 
   // get all the products
   Future<List<Product>> fetchAllProducts(BuildContext context) async {
     final userProvider = Provider.of<UsersProvider>(context, listen: false);
-    List<Product> productList = [];
+
     try {
       http.Response res =
           await http.get(Uri.parse('$uri/admin/get-products'), headers: {
@@ -105,6 +107,9 @@ class AdminServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
+
+    log(productList.toString());
+
     return productList;
   }
 
@@ -137,6 +142,7 @@ class AdminServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
+    notifyListeners();
   }
 
   Future<List<Order>> fetchAllOrders(BuildContext context) async {
@@ -167,6 +173,7 @@ class AdminServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
+    notifyListeners();
     return orderList;
   }
 
@@ -199,6 +206,7 @@ class AdminServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
+    notifyListeners();
   }
 
   Future<Map<String, dynamic>> getEarnings(BuildContext context) async {
@@ -230,6 +238,7 @@ class AdminServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
+    notifyListeners();
     return {
       'sales': sales,
       'totalEarnings': totalEarning,
@@ -265,6 +274,11 @@ class AdminServices {
         print('Get your image from with $imageUrls');
       }
     }
+    notifyListeners();
     return imageUrls;
+  }
+
+  updateListener(BuildContext context) {
+    notifyListeners();
   }
 }

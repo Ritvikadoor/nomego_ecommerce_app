@@ -29,7 +29,6 @@ class CustomTextField extends StatelessWidget {
         if (val == null || val.isEmpty) {
           return 'Enter your $hintText';
         }
-        return null;
       },
       maxLines: maxLines,
     );

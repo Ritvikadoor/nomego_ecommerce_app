@@ -44,10 +44,16 @@ class _AddProductScreenState extends State<AddProductScreen> {
     'Books',
     'Fashion'
   ];
+  void selectImages() async {
+    var res = await adminServices.pickImages();
+    setState(() {
+      images = res;
+    });
+  }
 
   void sellProduct() {
-    log('workking');
-    images = AdminServices().imageUrls;
+    // log('workking');
+    images = adminServices.imageUrls;
     if (_addProductFormKey.currentState!.validate() && images.isNotEmpty) {
       log('if working');
       adminServices.sellProduct(
@@ -60,13 +66,6 @@ class _AddProductScreenState extends State<AddProductScreen> {
         images: images,
       );
     }
-  }
-
-  void selectImages() async {
-    var res = await AdminServices().pickImages();
-    setState(() {
-      images = res;
-    });
   }
 
   @override
