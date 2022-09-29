@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -50,6 +52,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   }
 
   void addToCart() {
+    log('Add to cart pressed and reached to function');
     productDetailsServices.addToCart(
       context: context,
       product: widget.product,

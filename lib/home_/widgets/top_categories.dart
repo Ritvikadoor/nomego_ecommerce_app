@@ -13,7 +13,7 @@ class TopCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 70,
+      height: 80,
       child: ListView.builder(
         itemCount: GlobalVariables.categoryImages.length,
         scrollDirection: Axis.horizontal,
@@ -33,16 +33,16 @@ class TopCategories extends StatelessWidget {
                     child: Image.asset(
                       GlobalVariables.categoryImages[index]['image']!,
                       fit: BoxFit.cover,
-                      height: 50,
-                      width: 50,
+                      height: 60,
+                      width: 60,
                     ),
                   ),
                 ),
                 Text(
                   GlobalVariables.categoryImages[index]['title']!,
                   style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],

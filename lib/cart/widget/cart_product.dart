@@ -118,7 +118,7 @@ class _CartProductState extends State<CartProduct> {
                 child: Row(
                   children: [
                     InkWell(
-                      // onTap: () => decreaseQuantity(product),
+                      onTap: () => decreaseQuantity(product),
                       child: Container(
                         width: 35,
                         height: 32,
@@ -140,13 +140,12 @@ class _CartProductState extends State<CartProduct> {
                         height: 32,
                         alignment: Alignment.center,
                         child: Text(
-                          '',
-                          //  quantity.toString(),
+                          quantity.toString(),
                         ),
                       ),
                     ),
                     InkWell(
-                      // onTap: () => increaseQuantity(product),
+                      onTap: () => increaseQuantity(product),
                       child: Container(
                         width: 35,
                         height: 32,

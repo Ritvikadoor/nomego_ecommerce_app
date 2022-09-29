@@ -45,13 +45,8 @@ class User {
       address: njanMap['address'] ?? '',
       type: njanMap['type'] ?? '',
       token: njanMap['token'] ?? '',
-      // cart: List<Map<String, dynamic>>.from(njanMap["cart"])
-      // List<Map<String, dynamic>>.from(
-      //   njanMap['cart'].map(
-      //     (x) => Map<String, dynamic>.from(x),
-      //   ),
-      // ),
-      cart: [],
+      cart: List<Map<String, dynamic>>.from(njanMap['cart'] ?? []),
+      // cart: [],
     );
   }
 

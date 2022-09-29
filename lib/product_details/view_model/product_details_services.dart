@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/models/product.dart';
@@ -33,6 +34,8 @@ class ProductDetailsServices {
         response: res,
         context: context,
         onSuccess: () {
+          log('onSuccess ');
+
           User user =
               userProvider.user.copyWith(cart: jsonDecode(res.body)['cart']);
           userProvider.setUserFromModel(user);
