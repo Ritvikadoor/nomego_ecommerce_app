@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/account/view/account_screens.dart';
+import 'package:nomego_ecommerce_app/cart/view/cart_screen.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/home_/view/home_screen.dart';
+import 'package:nomego_ecommerce_app/providers/users_providers.dart';
 import 'package:provider/provider.dart';
 import 'package:badges/badges.dart';
 
@@ -20,14 +22,8 @@ class _BottomBarState extends State<BottomBar> {
 
   List<Widget> pages = [
     const HomeScreen(),
-    // const Center(
-    //   child: Text('AccountPage'),
-    // ),
     const AccountScreen(),
-    const Center(
-      child: Text('Cart page'),
-    )
-    // const CartScreen(),
+    const CartScreen(),
   ];
 
   void updatePage(int page) {
@@ -38,7 +34,7 @@ class _BottomBarState extends State<BottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    // final userCartLen = context.watch<UserProvider>().user.cart.length;
+    final userCartLen = context.watch<UsersProvider>().user.cart!.length;
 
     return Scaffold(
       body: pages[_page],
@@ -106,7 +102,7 @@ class _BottomBarState extends State<BottomBar> {
               ),
               child: Badge(
                 elevation: 0,
-                // badgeContent: Text(userCartLen.toString()),
+                badgeContent: Text(userCartLen.toString()),
                 badgeColor: Colors.white,
                 child: const Icon(
                   Icons.shopping_cart_outlined,
