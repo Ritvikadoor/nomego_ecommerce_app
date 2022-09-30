@@ -8,7 +8,7 @@ class GlobalVariables {
   static const secondaryColor = Color.fromRGBO(255, 153, 0, 1);
   static const backgroundColor = Colors.white;
   static const Color greyBackgroundCOlor = Color(0xffebecee);
-  static var selectedNavBarColor = Color.fromARGB(255, 156, 39, 176);
+  static var selectedNavBarColor = const Color.fromARGB(255, 156, 39, 176);
   static const unselectedNavBarColor = Colors.black87;
 
   // STATIC IMAGES
@@ -23,23 +23,23 @@ class GlobalVariables {
   static const List<Map<String, String>> categoryImages = [
     {
       'title': 'Mobiles',
-      'image': 'assets/mobileimage.jpeg',
+      'image': 'assets/images/mobileimage.jpeg',
     },
     {
       'title': 'Essentials',
-      'image': 'assets/essentialproducts.png',
+      'image': 'assets/images/essentialproducts.png',
     },
     {
       'title': 'Appliances',
-      'image': 'assets/appliance.png',
+      'image': 'assets/images/appliance.png',
     },
     {
       'title': 'Books',
-      'image': 'assets/books.jpeg',
+      'image': 'assets/images/books.jpeg',
     },
     {
       'title': 'Fashion',
-      'image': 'assets/fashion.jpg',
+      'image': 'assets/images/fashion.jpg',
     },
   ];
 }

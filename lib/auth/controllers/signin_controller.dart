@@ -40,4 +40,10 @@ class SignInController extends ChangeNotifier {
       builder: (context) => const SignIn(),
     ));
   }
+
+  void navigateToSignUp(BuildContext context) {
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+      builder: (context) => const AuthScreen(),
+    ));
+  }
 }

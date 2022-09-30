@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nomego_ecommerce_app/auth/view/auth_screens.dart';
 
 class GetStartedTwo extends StatelessWidget {
   const GetStartedTwo({super.key});
@@ -33,9 +34,9 @@ class GetStartedTwo extends StatelessWidget {
                     fontSize: 24,
                     fontWeight: FontWeight.w800),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: const Text(
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
                   'Get all your cleared through our chottu robotic assistance with easy and transperant service after sales and in every trouble you face',
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -71,7 +72,7 @@ class GetStartedTwo extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 20),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => const AuthScreen(),
                         child: const Text(
                           'Next',
                         ),

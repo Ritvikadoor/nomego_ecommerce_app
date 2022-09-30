@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nomego_ecommerce_app/splash_screen/view/get_started_two.dart';
 
 class GetStarted extends StatelessWidget {
   const GetStarted({super.key});
@@ -68,7 +69,7 @@ class GetStarted extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 20),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => const GetStartedTwo(),
                         child: const Text(
                           'Next',
                         ),

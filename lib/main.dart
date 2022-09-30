@@ -8,7 +8,6 @@ import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
 import 'package:nomego_ecommerce_app/routes/routes.dart';
 import 'package:nomego_ecommerce_app/services/auth_services.dart';
-import 'package:nomego_ecommerce_app/splash_screen/view/get_started.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -65,6 +64,8 @@ class _MyAppState extends State<MyApp> {
           : Provider.of<UsersProvider>(context).user.type.isNotEmpty
               ? const BottomBar()
               : const AuthScreen(),
+      //GetStarted
+      //GetStartedTwo
     );
   }
 }

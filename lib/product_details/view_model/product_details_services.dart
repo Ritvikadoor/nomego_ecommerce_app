@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/models/product.dart';
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/constants/utils.dart';
+import 'package:nomego_ecommerce_app/models/product.dart';
 import 'package:nomego_ecommerce_app/models/user.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
 import 'package:provider/provider.dart';
@@ -34,11 +34,11 @@ class ProductDetailsServices {
         response: res,
         context: context,
         onSuccess: () {
-          log('onSuccess ');
-
+          log('Onsucces');
           User user =
               userProvider.user.copyWith(cart: jsonDecode(res.body)['cart']);
           userProvider.setUserFromModel(user);
+          showSnackBar(context, 'Added to cart successfully');
         },
       );
     } catch (e) {

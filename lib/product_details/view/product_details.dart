@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:nomego_ecommerce_app/adress/view/address_screen.dart';
 import 'package:nomego_ecommerce_app/models/product.dart';
 import 'package:nomego_ecommerce_app/common/widgets/custom_button.dart';
 import 'package:nomego_ecommerce_app/common/widgets/stars.dart';
@@ -49,6 +50,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
   void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
+  }
+
+  void navigateToAddress(int sum) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => AddressScreen(totalAmount: sum.toString())));
   }
 
   void addToCart() {
@@ -217,7 +223,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               padding: const EdgeInsets.all(10),
               child: CustomButton(
                 text: 'Buy Now',
-                onTap: () {},
+                onTap: () => navigateToAddress,
               ),
             ),
             const SizedBox(height: 10),

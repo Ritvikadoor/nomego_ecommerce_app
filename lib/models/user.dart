@@ -9,7 +9,7 @@ class User {
   final String address;
   final String type;
   final String token;
-  List<Map<String, dynamic>>? cart;
+  final List<dynamic> cart;
 
   User({
     required this.id,
@@ -19,7 +19,7 @@ class User {
     required this.address,
     required this.type,
     required this.token,
-    this.cart,
+    required this.cart,
   });
 
   Map<String, dynamic> toMap() {
@@ -62,7 +62,7 @@ class User {
     String? address,
     String? type,
     String? token,
-    List<Map<String, dynamic>>? cart,
+    List<dynamic>? cart,
   }) {
     return User(
       id: id ?? this.id,
