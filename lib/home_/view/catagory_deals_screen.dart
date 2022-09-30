@@ -42,9 +42,7 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
           flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: GlobalVariables.appBarGradient,
-            ),
+            decoration: const BoxDecoration(color: Colors.purple),
           ),
           title: Text(
             widget.category,

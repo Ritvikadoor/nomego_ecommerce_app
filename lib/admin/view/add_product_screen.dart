@@ -75,9 +75,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
           flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: GlobalVariables.appBarGradient,
-            ),
+            decoration: const BoxDecoration(color: Colors.purple),
           ),
           title: const Text(
             'Add Product',

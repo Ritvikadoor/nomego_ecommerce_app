@@ -52,7 +52,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   }
 
   void addToCart() {
-    log('Add to cart pressed and reached to function');
     productDetailsServices.addToCart(
       context: context,
       product: widget.product,
@@ -66,9 +65,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
           flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: GlobalVariables.appBarGradient,
-            ),
+            decoration: const BoxDecoration(color: Colors.purple),
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -229,7 +226,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               child: CustomButton(
                 text: 'Add to Cart',
                 onTap: addToCart,
-                color: const Color.fromRGBO(254, 216, 19, 1),
+                color: Colors.purple,
               ),
             ),
             const SizedBox(height: 10),

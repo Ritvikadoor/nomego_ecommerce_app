@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: AppBar(
           flexibleSpace: Container(
             decoration: const BoxDecoration(
-              gradient: GlobalVariables.appBarGradient,
+              color: Colors.purple,
             ),
           ),
           title: Row(

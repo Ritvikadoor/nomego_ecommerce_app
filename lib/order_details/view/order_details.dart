@@ -57,9 +57,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
           flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: GlobalVariables.appBarGradient,
-            ),
+            decoration: const BoxDecoration(color: Colors.purple),
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

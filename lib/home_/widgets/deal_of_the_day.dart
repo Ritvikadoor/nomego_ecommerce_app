@@ -3,6 +3,7 @@ import 'package:nomego_ecommerce_app/models/product.dart';
 import 'package:nomego_ecommerce_app/common/widgets/loader.dart';
 import 'package:nomego_ecommerce_app/home_/view_model/home_services.dart';
 import 'package:nomego_ecommerce_app/product_details/view/product_details.dart';
+import 'package:nomego_ecommerce_app/product_details/view_model/product_details_services.dart';
 
 class DealOfDay extends StatefulWidget {
   const DealOfDay({Key? key}) : super(key: key);
@@ -60,8 +61,8 @@ class _DealOfDayState extends State<DealOfDay> {
                     Container(
                       padding: const EdgeInsets.only(left: 15),
                       alignment: Alignment.topLeft,
-                      child: const Text(
-                        '\$100',
+                      child: Text(
+                        '\$${product!.price}',
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
@@ -69,8 +70,8 @@ class _DealOfDayState extends State<DealOfDay> {
                       alignment: Alignment.topLeft,
                       padding:
                           const EdgeInsets.only(left: 15, top: 5, right: 40),
-                      child: const Text(
-                        'Ritvik',
+                      child: Text(
+                        product!.name,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),

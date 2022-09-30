@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
 import 'package:provider/provider.dart';
 
@@ -11,9 +10,7 @@ class BelowAppBar extends StatelessWidget {
     final user = Provider.of<UsersProvider>(context).user;
 
     return Container(
-      decoration: const BoxDecoration(
-        gradient: GlobalVariables.appBarGradient,
-      ),
+      decoration: BoxDecoration(color: Colors.purple.shade400),
       padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
       child: Row(
         children: [

@@ -3,7 +3,6 @@ import 'package:nomego_ecommerce_app/adress/view/address_screen.dart';
 import 'package:nomego_ecommerce_app/cart/widget/cart_product.dart';
 import 'package:nomego_ecommerce_app/cart/widget/cart_subtotal.dart';
 import 'package:nomego_ecommerce_app/common/widgets/custom_button.dart';
-import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/home_/widgets/address_box.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
 import 'package:nomego_ecommerce_app/search_screen/view/search_screen.dart';
@@ -42,9 +41,7 @@ class _CartScreenState extends State<CartScreen> {
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
           flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: GlobalVariables.appBarGradient,
-            ),
+            decoration: const BoxDecoration(color: Colors.purple),
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -115,19 +112,8 @@ class _CartScreenState extends State<CartScreen> {
           children: [
             const AddressBox(),
             const CartSubtotal(),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CustomButton(
-                text: 'Proceed to Buy (${user.cart!.length} items)',
-                onTap: () => navigateToAddress(sum),
-                color: Colors.yellow[600],
-              ),
-            ),
             const SizedBox(height: 15),
-            Container(
-              color: Colors.black12.withOpacity(0.08),
-              height: 1,
-            ),
+            Divider(),
             const SizedBox(height: 5),
             ListView.builder(
               itemCount: user.cart!.length,
@@ -137,6 +123,14 @@ class _CartScreenState extends State<CartScreen> {
                   index: index,
                 );
               },
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: CustomButton(
+                text: 'Proceed to Buy (${user.cart!.length} items)',
+                onTap: () => navigateToAddress(sum),
+                color: Colors.purple,
+              ),
             ),
           ],
         ),
