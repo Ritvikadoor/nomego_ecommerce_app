@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/admin/view/admin_screen.dart';
 import 'package:nomego_ecommerce_app/admin/view_model/admin_services.dart';
+import 'package:nomego_ecommerce_app/auth/controllers/signin_controller.dart';
 import 'package:nomego_ecommerce_app/auth/view/auth_screens.dart';
 import 'package:nomego_ecommerce_app/common/widgets/bottom_bar.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
@@ -14,6 +15,9 @@ void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (context) => AdminServices(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => SignInController(),
     ),
     ChangeNotifierProvider(
       create: (context) => UsersProvider(),
@@ -41,7 +45,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Amazon Clone',
+      title: 'Nomogo',
       theme: ThemeData(
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
         colorScheme: const ColorScheme.light(
