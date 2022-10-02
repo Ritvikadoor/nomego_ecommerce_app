@@ -8,6 +8,8 @@ import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
 import 'package:nomego_ecommerce_app/routes/routes.dart';
 import 'package:nomego_ecommerce_app/services/auth_services.dart';
+import 'package:nomego_ecommerce_app/splash_screen/view/get_started.dart';
+import 'package:nomego_ecommerce_app/splash_screen/view/splash.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -43,29 +45,25 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Nomogo',
-      theme: ThemeData(
-        scaffoldBackgroundColor: GlobalVariables.backgroundColor,
-        colorScheme: const ColorScheme.light(
-          primary: Colors.purple,
-        ),
-        appBarTheme: const AppBarTheme(
-          elevation: 0,
-          iconTheme: IconThemeData(
-            color: Colors.black,
+        debugShowCheckedModeBanner: false,
+        title: 'Nomogo',
+        theme: ThemeData(
+          scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+          colorScheme: const ColorScheme.light(
+            primary: Colors.purple,
           ),
+          appBarTheme: const AppBarTheme(
+            elevation: 0,
+            iconTheme: IconThemeData(
+              color: Colors.black,
+            ),
+          ),
+          useMaterial3: true, // can remove this line
         ),
-        useMaterial3: true, // can remove this line
-      ),
-      onGenerateRoute: (settings) => generateRoute(settings),
-      home: Provider.of<UsersProvider>(context).user.type == 'admin'
-          ? const AdminScreen()
-          : Provider.of<UsersProvider>(context).user.type.isNotEmpty
-              ? const BottomBar()
-              : const AuthScreen(),
-      //GetStarted
-      //GetStartedTwo
-    );
+        onGenerateRoute: (settings) => generateRoute(settings),
+        home: const SplashScreen()
+        //GetStarted
+        //GetStartedTwo
+        );
   }
 }

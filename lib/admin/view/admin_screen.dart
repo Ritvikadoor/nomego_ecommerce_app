@@ -42,17 +42,8 @@ class _AdminScreenState extends State<AdminScreen> {
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                alignment: Alignment.topLeft,
-                child: Image.asset(
-                  'assets/nmg.png',
-                  width: 160,
-                  height: 60,
-                  // color: Colors.black,
-                ),
-              ),
-              const Text(
+            children: const [
+              Text(
                 'Admin',
                 style: TextStyle(
                   color: Colors.black,

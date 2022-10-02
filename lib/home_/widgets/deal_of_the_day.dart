@@ -3,7 +3,6 @@ import 'package:nomego_ecommerce_app/models/product.dart';
 import 'package:nomego_ecommerce_app/common/widgets/loader.dart';
 import 'package:nomego_ecommerce_app/home_/view_model/home_services.dart';
 import 'package:nomego_ecommerce_app/product_details/view/product_details.dart';
-import 'package:nomego_ecommerce_app/product_details/view_model/product_details_services.dart';
 
 class DealOfDay extends StatefulWidget {
   const DealOfDay({Key? key}) : super(key: key);
@@ -92,18 +91,18 @@ class _DealOfDayState extends State<DealOfDay> {
                             .toList(),
                       ),
                     ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 15,
-                      ).copyWith(left: 15),
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        'See all deals',
-                        style: TextStyle(
-                          color: Colors.cyan[800],
-                        ),
-                      ),
-                    ),
+                    // Container(
+                    //   padding: const EdgeInsets.symmetric(
+                    //     vertical: 15,
+                    //   ).copyWith(left: 15),
+                    //   alignment: Alignment.topLeft,
+                    //   child: Text(
+                    //     'See all deals',
+                    //     style: TextStyle(
+                    //       color: Colors.cyan[800],
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               );

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:nomego_ecommerce_app/admin/view/admin_screen.dart';
 import 'package:nomego_ecommerce_app/auth/view/signin.dart';
 import 'package:nomego_ecommerce_app/common/widgets/bottom_bar.dart';
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
@@ -9,6 +10,7 @@ import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/constants/utils.dart';
 import 'package:nomego_ecommerce_app/models/user.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
+import 'package:nomego_ecommerce_app/splash_screen/view/splash.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -83,12 +85,11 @@ class AuthService {
           SharedPreferences prefs = await SharedPreferences.getInstance();
           Provider.of<UsersProvider>(context, listen: false).setUser(res.body);
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
-
-          Navigator.pushNamedAndRemoveUntil(
-            context,
-            BottomBar.routeName,
-            (route) => false,
-          );
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (context) =>
+                  Provider.of<UsersProvider>(context).user.type == 'admin'
+                      ? const AdminScreen()
+                      : SplashScreen()));
         },
       );
     } catch (e) {

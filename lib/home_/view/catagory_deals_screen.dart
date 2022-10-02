@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/models/product.dart';
 import 'package:nomego_ecommerce_app/common/widgets/loader.dart';
-import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/home_/view_model/home_services.dart';
 import 'package:nomego_ecommerce_app/product_details/view/product_details.dart';
 
