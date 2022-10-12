@@ -25,8 +25,8 @@ class AuthScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 50),
           child: Consumer<SignInController>(builder: (context, value, _) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            return ListView(
+              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
                   'Welcome',

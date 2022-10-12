@@ -54,7 +54,7 @@ class _DealOfDayState extends State<DealOfDay> {
                     ),
                     Image.network(
                       product!.images[0],
-                      height: 235,
+                      height: 100,
                       fit: BoxFit.fitHeight,
                     ),
                     Container(
