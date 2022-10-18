@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nomego_ecommerce_app/adress/view/address_screen.dart';
 import 'package:nomego_ecommerce_app/models/product.dart';
 import 'package:nomego_ecommerce_app/admin/view/add_product_screen.dart';
 import 'package:nomego_ecommerce_app/auth/view/auth_screens.dart';
@@ -56,14 +57,14 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           product: product,
         ),
       );
-    // case AddressScreen.routeName:
-    //   var totalAmount = routeSettings.arguments as String;
-    //   return MaterialPageRoute(
-    //     settings: routeSettings,
-    //     builder: (_) => AddressScreen(
-    //       totalAmount: totalAmount,
-    //     ),
-    //   );
+    case AddressScreen.routeName:
+      var totalAmount = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => AddressScreen(
+          totalAmount: totalAmount,
+        ),
+      );
     // case OrderDetailScreen.routeName:
     //   var order = routeSettings.arguments as Order;
     //   return MaterialPageRoute(

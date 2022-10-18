@@ -53,6 +53,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   }
 
   void navigateToAddress(int sum) {
+    // Navigator.of(context).push(MaterialPageRoute(
+    //     builder: (context) => AddressScreen(totalAmount: sum.toString())));
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => AddressScreen(totalAmount: sum.toString())));
   }
