@@ -15,7 +15,6 @@ const userRouter = require("./routes/user");
 const PORT = process.env.PORT || 3000;
 const app = express();
 const DB= "mongodb+srv://ritvik:526621@cluster0.abb5a8a.mongodb.net/?retryWrites=true&w=majority"
-
 //MIDDLEWARE 
 app.use(express.json());
 app.use(authRouter);
@@ -27,7 +26,7 @@ app.use(userRouter);
 mongoose
 .connect(DB)
 .then(()=>{
-    console.log('Connection Succesful');
+    console.log('DB-Connected Succesfully');
 }).catch((e)=>{console.log(e);
 });
 //CLIENTSIDE->>>MIDDLE WARA->>>SERVER->>>>>>>>CLIENT

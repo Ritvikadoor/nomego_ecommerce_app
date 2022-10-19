@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:nomego_ecommerce_app/admin/view/admin_screen.dart';
 import 'package:nomego_ecommerce_app/auth/view/signin.dart';
-import 'package:nomego_ecommerce_app/common/widgets/bottom_bar.dart';
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/constants/utils.dart';

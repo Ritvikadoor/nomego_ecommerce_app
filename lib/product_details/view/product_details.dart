@@ -26,6 +26,7 @@ class ProductDetailScreen extends StatefulWidget {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  int? sum;
   final ProductDetailsServices productDetailsServices =
       ProductDetailsServices();
   double avgRating = 0;
@@ -53,8 +54,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   }
 
   void navigateToAddress(int sum) {
-    // Navigator.of(context).push(MaterialPageRoute(
-    //     builder: (context) => AddressScreen(totalAmount: sum.toString())));
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => AddressScreen(totalAmount: sum.toString())));
   }
@@ -194,6 +193,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               padding: const EdgeInsets.all(8),
               child: RichText(
                 text: TextSpan(
+                  /////////////////////////////////////
                   text: 'Deal Price: ',
                   style: const TextStyle(
                     fontSize: 16,
@@ -202,6 +202,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   ),
                   children: [
                     TextSpan(
+                      //////////////////////////////////////////////////
                       text: '\$${widget.product.price}',
                       style: const TextStyle(
                         fontSize: 22,
@@ -225,7 +226,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               padding: const EdgeInsets.all(10),
               child: CustomButton(
                 text: 'Buy Now',
-                onTap: () => navigateToAddress,
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>
+                        AddressScreen(totalAmount: sum.toString()))),
               ),
             ),
             const SizedBox(height: 10),

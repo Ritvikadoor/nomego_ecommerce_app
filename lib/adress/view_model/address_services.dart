@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
@@ -68,6 +69,7 @@ class AddressServices {
         response: res,
         context: context,
         onSuccess: () {
+          log(res.toString());
           showSnackBar(context, 'Your order has been placed!');
           User user = userProvider.user.copyWith(
             cart: [],

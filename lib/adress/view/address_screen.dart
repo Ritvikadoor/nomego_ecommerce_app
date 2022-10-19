@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/adress/view_model/address_services.dart';
 import 'package:nomego_ecommerce_app/common/widgets/custom_textfield.dart';
@@ -8,6 +10,7 @@ import 'package:provider/provider.dart';
 
 class AddressScreen extends StatefulWidget {
   static const String routeName = '/address';
+
   final String totalAmount;
   const AddressScreen({
     Key? key,
@@ -33,8 +36,8 @@ class _AddressScreenState extends State<AddressScreen> {
   void initState() {
     super.initState();
     paymentItems.add(
-      PaymentItem(
-        amount: widget.totalAmount,
+      const PaymentItem(
+        amount: '10',
         label: 'Total Amount',
         status: PaymentItemStatus.final_price,
       ),
@@ -50,42 +53,43 @@ class _AddressScreenState extends State<AddressScreen> {
     cityController.dispose();
   }
 
-  void onGooglePayResult(res) {
-    if (Provider.of<UsersProvider>(context, listen: false)
-        .user
-        .address
-        .isEmpty) {
-      addressServices.saveUserAddress(
-          context: context, address: addressToBeUsed);
-    }
-    addressServices.placeOrder(
-      context: context,
-      address: addressToBeUsed,
-      totalSum: double.parse(widget.totalAmount),
-    );
-  }
-
   void payPressed(String addressFromProvider) {
     addressToBeUsed = "";
-
     bool isForm = flatBuildingController.text.isNotEmpty ||
         areaController.text.isNotEmpty ||
         pincodeController.text.isNotEmpty ||
         cityController.text.isNotEmpty;
-
-    if (isForm) {
+    if (isForm == true) {
+      log("pay pressed working");
       if (_addressFormKey.currentState!.validate()) {
         addressToBeUsed =
             '${flatBuildingController.text}, ${areaController.text}, ${cityController.text} - ${pincodeController.text}';
+        log(addressToBeUsed);
+        if (Provider.of<UsersProvider>(context, listen: false)
+            .user
+            .address
+            .isEmpty) {
+          addressServices.saveUserAddress(
+              context: context, address: addressToBeUsed);
+        }
+        addressServices.placeOrder(
+          context: context,
+          address: addressToBeUsed,
+          totalSum: 10.0,
+        );
+        log("some data recived");
       } else {
         throw Exception('Please enter all the values!');
       }
     } else if (addressFromProvider.isNotEmpty) {
       addressToBeUsed = addressFromProvider;
     } else {
+      log("Is it  error");
       showSnackBar(context, 'ERROR');
     }
   }
+
+  void onGooglePayResult(res) {}
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +170,9 @@ class _AddressScreenState extends State<AddressScreen> {
               GooglePayButton(
                 onPressed: () => payPressed(address),
                 paymentConfigurationAsset: 'gpay.json',
-                onPaymentResult: onGooglePayResult,
+                onPaymentResult: (data) {
+                  log(data.toString());
+                },
                 paymentItems: paymentItems,
                 height: 50,
                 type: GooglePayButtonType.buy,
