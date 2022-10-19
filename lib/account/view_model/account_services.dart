@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/auth/view/auth_screens.dart';
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
@@ -27,6 +28,7 @@ class AccountServices {
         response: res,
         context: context,
         onSuccess: () {
+          log(res.body.toString());
           for (int i = 0; i < jsonDecode(res.body).length; i++) {
             orderList.add(
               Order.fromJson(

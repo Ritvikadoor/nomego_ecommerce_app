@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/account/view_model/account_services.dart';
 import 'package:nomego_ecommerce_app/account/widgets/single_product.dart';
@@ -63,32 +65,63 @@ class _OrdersState extends State<Orders> {
                 ],
               ),
               // display orders
-              Container(
-                height: 170,
-                padding: const EdgeInsets.only(
-                  left: 10,
-                  top: 20,
-                  right: 0,
-                ),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: orders!.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          OrderDetailScreen.routeName,
-                          arguments: orders![index],
+              Column(
+                children: [
+                  Container(
+                    height: 270,
+                    child: ListView.builder(
+                      itemBuilder: (context, index) {
+                        log(orders![index].products[0].images[0]);
+                        // final items =
+                        //     orders!.first.products.first.images[index];
+                        // log(items.toString());
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              OrderDetailScreen.routeName,
+                              arguments: orders![index],
+                            );
+                          },
+                          child: SingleProduct(
+                            image: orders![index].products[0].images[0],
+                            //orders![index].products[0].images[0]
+                          ),
                         );
                       },
-                      child: SingleProduct(
-                        image: orders![index].products[0].images[0],
-                      ),
-                    );
-                  },
-                ),
-              ),
+                      itemCount: 1,
+                    ),
+                  ),
+                ],
+              )
+
+              // Container(
+              //   height: 170,
+              //   width: 300,
+              //   padding: const EdgeInsets.only(
+              //     left: 10,
+              //     top: 20,
+              //     right: 0,
+              //   ),
+              //   child: ListView.builder(
+              //     scrollDirection: Axis.horizontal,
+              //     itemCount: orders!.length,
+              //     itemBuilder: (context, index) {
+              //       return GestureDetector(
+              // onTap: () {
+              //   Navigator.pushNamed(
+              //     context,
+              //     OrderDetailScreen.routeName,
+              //     arguments: orders![index],
+              //   );
+              // },
+              //         child: SingleProduct(
+              //           image: orders![0].products[0].images[0],
+              //         ),
+              //       );
+              //     },
+              //   ),
+              // ),
             ],
           );
   }
