@@ -14,7 +14,7 @@ const userRouter = require("./routes/user");
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-const DB= "mongodb+srv://ritvik:526621@cluster0.abb5a8a.mongodb.net/?retryWrites=true&w=majority"
+const DB= "mongodb+srv://ritvik:vJOS2m9DyGogdpli@cluster0.abb5a8a.mongodb.net/test"
 //MIDDLEWARE 
 app.use(express.json());
 app.use(authRouter);

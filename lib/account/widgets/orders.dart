@@ -68,13 +68,15 @@ class _OrdersState extends State<Orders> {
               Column(
                 children: [
                   Container(
-                    height: 270,
+                    height: 140,
                     child: ListView.builder(
+                      itemCount: orders!.length,
                       itemBuilder: (context, index) {
-                        log(orders![index].products[0].images[0]);
-                        // final items =
-                        //     orders!.first.products.first.images[index];
-                        // log(items.toString());
+                        log(orders![index]
+                            .products[index]
+                            .images[0]
+                            .toString());
+
                         return GestureDetector(
                           onTap: () {
                             Navigator.pushNamed(
@@ -84,12 +86,11 @@ class _OrdersState extends State<Orders> {
                             );
                           },
                           child: SingleProduct(
-                            image: orders![index].products[0].images[0],
+                            image: orders![index].products[index].images[index],
                             //orders![index].products[0].images[0]
                           ),
                         );
                       },
-                      itemCount: 1,
                     ),
                   ),
                 ],
