@@ -68,8 +68,11 @@ class _OrdersState extends State<Orders> {
               Column(
                 children: [
                   Container(
-                    height: 400,
-                    child: ListView.builder(
+                    height: 450,
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2),
                       itemCount: orders!.length,
                       itemBuilder: (context, index) {
                         log(orders!.length.toString());
@@ -96,34 +99,6 @@ class _OrdersState extends State<Orders> {
                   ),
                 ],
               )
-
-              // Container(
-              //   height: 170,
-              //   width: 300,
-              //   padding: const EdgeInsets.only(
-              //     left: 10,
-              //     top: 20,
-              //     right: 0,
-              //   ),
-              //   child: ListView.builder(
-              //     scrollDirection: Axis.horizontal,
-              //     itemCount: orders!.length,
-              //     itemBuilder: (context, index) {
-              //       return GestureDetector(
-              // onTap: () {
-              //   Navigator.pushNamed(
-              //     context,
-              //     OrderDetailScreen.routeName,
-              //     arguments: orders![index],
-              //   );
-              // },
-              //         child: SingleProduct(
-              //           image: orders![0].products[0].images[0],
-              //         ),
-              //       );
-              //     },
-              //   ),
-              // ),
             ],
           );
   }
