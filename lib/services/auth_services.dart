@@ -46,7 +46,7 @@ class AuthService {
         context: context,
         onSuccess: () {
           Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => SignIn()));
+              MaterialPageRoute(builder: (context) => const SignIn()));
           showSnackBar(
             context,
             'Account created! Login with the same credentials!',
@@ -88,7 +88,7 @@ class AuthService {
               builder: (context) =>
                   Provider.of<UsersProvider>(context).user.type == 'admin'
                       ? const AdminScreen()
-                      : SplashScreen()));
+                      : const SplashScreen()));
         },
       );
     } catch (e) {

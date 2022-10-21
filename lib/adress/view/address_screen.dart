@@ -76,7 +76,7 @@ class _AddressScreenState extends State<AddressScreen> {
         addressServices.placeOrder(
           context: context,
           address: addressToBeUsed,
-          totalSum: 10.0,
+          totalSum: double.parse(widget.totalAmount),
         );
         log("some data recived");
       } else {
