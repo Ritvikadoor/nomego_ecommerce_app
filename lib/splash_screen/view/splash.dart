@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/modules/admin/view/admin_screen.dart';
-import 'package:nomego_ecommerce_app/auth/view/auth_screens.dart';
+import 'package:nomego_ecommerce_app/modules/auth/view/auth_screens.dart';
 import 'package:nomego_ecommerce_app/common/widgets/bottom_bar.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
 import 'package:provider/provider.dart';

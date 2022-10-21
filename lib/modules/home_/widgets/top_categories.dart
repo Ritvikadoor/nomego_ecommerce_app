@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
-import 'package:nomego_ecommerce_app/home_/view/catagory_deals_screen.dart';
+import 'package:nomego_ecommerce_app/modules/home_/view/catagory_deals_screen.dart';
 
 class TopCategories extends StatelessWidget {
   const TopCategories({Key? key}) : super(key: key);

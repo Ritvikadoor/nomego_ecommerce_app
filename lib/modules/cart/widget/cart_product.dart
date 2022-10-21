@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/cart/view_model/cart_services.dart';
+import 'package:nomego_ecommerce_app/modules/cart/view_model/cart_services.dart';
 import 'package:nomego_ecommerce_app/models/product.dart';
-import 'package:nomego_ecommerce_app/product_details/view_model/product_details_services.dart';
+import 'package:nomego_ecommerce_app/modules/product_details/view_model/product_details_services.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
 import 'package:provider/provider.dart';
 

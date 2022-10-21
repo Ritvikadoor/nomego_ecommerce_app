@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/models/product.dart';
 import 'package:nomego_ecommerce_app/common/widgets/loader.dart';
-import 'package:nomego_ecommerce_app/home_/view_model/home_services.dart';
-import 'package:nomego_ecommerce_app/product_details/view/product_details.dart';
+import 'package:nomego_ecommerce_app/modules/home_/view_model/home_services.dart';
+import 'package:nomego_ecommerce_app/modules/product_details/view/product_details.dart';
 
 class CategoryDealsScreen extends StatefulWidget {
   static const String routeName = '/category-deals';

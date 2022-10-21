@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/auth/view/auth_screens.dart';
+import 'package:nomego_ecommerce_app/modules/auth/view/auth_screens.dart';
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/constants/utils.dart';

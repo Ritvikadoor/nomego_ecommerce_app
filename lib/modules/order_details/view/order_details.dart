@@ -5,7 +5,7 @@ import 'package:nomego_ecommerce_app/common/widgets/custom_button.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/models/order.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
-import 'package:nomego_ecommerce_app/search_screen/view/search_screen.dart';
+import 'package:nomego_ecommerce_app/modules/search_screen/view/search_screen.dart';
 import 'package:provider/provider.dart';
 
 class OrderDetailScreen extends StatefulWidget {

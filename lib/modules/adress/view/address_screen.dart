@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/adress/view_model/address_services.dart';
+import 'package:nomego_ecommerce_app/modules/adress/view_model/address_services.dart';
 import 'package:nomego_ecommerce_app/common/widgets/custom_textfield.dart';
 import 'package:nomego_ecommerce_app/constants/utils.dart';
 import 'package:nomego_ecommerce_app/models/product.dart';

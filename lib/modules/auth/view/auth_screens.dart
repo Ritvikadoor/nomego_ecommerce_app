@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/auth/controllers/signin_controller.dart';
-import 'package:nomego_ecommerce_app/auth/view/signin.dart';
+import 'package:nomego_ecommerce_app/modules/auth/controllers/signin_controller.dart';
+import 'package:nomego_ecommerce_app/modules/auth/view/signin.dart';
 import 'package:nomego_ecommerce_app/common/widgets/custom_button.dart';
 import 'package:nomego_ecommerce_app/common/widgets/custom_textfield.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
