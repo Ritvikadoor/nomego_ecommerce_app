@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:nomego_ecommerce_app/models/rating.dart';
+import 'package:nomego_ecommerce_app/modules/models/rating.dart';
 
 class Product {
   final String name;

@@ -7,7 +7,7 @@ import 'package:nomego_ecommerce_app/modules/auth/view/signin.dart';
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/constants/utils.dart';
-import 'package:nomego_ecommerce_app/models/user.dart';
+import 'package:nomego_ecommerce_app/modules/models/user.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
 import 'package:nomego_ecommerce_app/splash_screen/view/splash.dart';
 import 'package:provider/provider.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/models/product.dart';
+import 'package:nomego_ecommerce_app/modules/models/product.dart';
 import 'package:nomego_ecommerce_app/common/widgets/loader.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/modules/home_/widgets/address_box.dart';

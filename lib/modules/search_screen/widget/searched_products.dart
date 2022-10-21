@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/models/product.dart';
+import 'package:nomego_ecommerce_app/modules/models/product.dart';
 import 'package:nomego_ecommerce_app/common/widgets/stars.dart';
 
 class SearchedProduct extends StatelessWidget {

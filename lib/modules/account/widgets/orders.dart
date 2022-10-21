@@ -5,7 +5,7 @@ import 'package:nomego_ecommerce_app/modules/account/view_model/account_services
 import 'package:nomego_ecommerce_app/modules/account/widgets/single_product.dart';
 import 'package:nomego_ecommerce_app/common/widgets/loader.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
-import 'package:nomego_ecommerce_app/models/order.dart';
+import 'package:nomego_ecommerce_app/modules/models/order.dart';
 import 'package:nomego_ecommerce_app/modules/order_details/view/order_details.dart';
 
 class Orders extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/modules/account/widgets/single_product.dart';
 import 'package:nomego_ecommerce_app/modules/admin/view_model/admin_services.dart';
 import 'package:nomego_ecommerce_app/common/widgets/loader.dart';
-import 'package:nomego_ecommerce_app/models/order.dart';
+import 'package:nomego_ecommerce_app/modules/models/order.dart';
 import 'package:nomego_ecommerce_app/modules/order_details/view/order_details.dart';
 
 class OrdersScreen extends StatefulWidget {

@@ -5,7 +5,7 @@ import 'package:nomego_ecommerce_app/modules/home_/widgets/carousel_images.dart'
 import 'package:nomego_ecommerce_app/modules/home_/widgets/deal_of_the_day.dart';
 import 'package:nomego_ecommerce_app/modules/home_/widgets/side_scroll_product.dart';
 import 'package:nomego_ecommerce_app/modules/home_/widgets/top_categories.dart';
-import 'package:nomego_ecommerce_app/models/product.dart';
+import 'package:nomego_ecommerce_app/modules/models/product.dart';
 import 'package:nomego_ecommerce_app/modules/search_screen/view/search_screen.dart';
 
 class HomeScreen extends StatefulWidget {

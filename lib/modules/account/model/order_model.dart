@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:nomego_ecommerce_app/models/product.dart';
+import 'package:nomego_ecommerce_app/modules/models/product.dart';
 
 class Order {
   final String id;

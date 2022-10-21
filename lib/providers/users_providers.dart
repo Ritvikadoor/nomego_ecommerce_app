@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/models/user.dart';
+import 'package:nomego_ecommerce_app/modules/models/user.dart';
 
 class UsersProvider extends ChangeNotifier {
   User _user = User(
