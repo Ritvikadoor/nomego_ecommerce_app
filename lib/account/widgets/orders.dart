@@ -74,7 +74,7 @@ class _OrdersState extends State<Orders> {
                       itemBuilder: (context, index) {
                         log(orders![index]
                             .products[index]
-                            .images[0]
+                            .images[index]
                             .toString());
 
                         return GestureDetector(

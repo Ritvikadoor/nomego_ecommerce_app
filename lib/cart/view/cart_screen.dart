@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/adress/view/address_screen.dart';
 import 'package:nomego_ecommerce_app/cart/widget/cart_product.dart';
@@ -33,6 +35,7 @@ class _CartScreenState extends State<CartScreen> {
         .map((e) => sum += e['quantity'] * e['product']['price'] as int)
         .toList();
 
+    log(sum.toString());
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
