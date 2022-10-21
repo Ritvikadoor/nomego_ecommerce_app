@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/admin/view_model/admin_services.dart';
+import 'package:nomego_ecommerce_app/modules/admin/view_model/admin_services.dart';
 import 'package:nomego_ecommerce_app/auth/controllers/signin_controller.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';

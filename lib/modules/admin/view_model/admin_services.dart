@@ -5,7 +5,7 @@ import 'package:cloudinary/cloudinary.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
-import 'package:nomego_ecommerce_app/admin/model/sales.dart';
+import 'package:nomego_ecommerce_app/modules/admin/model/sales.dart';
 import 'package:nomego_ecommerce_app/constants/errorhandling.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/constants/utils.dart';

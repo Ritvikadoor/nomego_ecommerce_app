@@ -1,10 +1,10 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/account/view_model/account_services.dart';
-import 'package:nomego_ecommerce_app/account/widgets/account_button.dart';
-import 'package:nomego_ecommerce_app/admin/model/sales.dart';
-import 'package:nomego_ecommerce_app/admin/view_model/admin_services.dart';
-import 'package:nomego_ecommerce_app/admin/widgets/catagory_products_chart.dart';
+import 'package:nomego_ecommerce_app/modules/account/view_model/account_services.dart';
+import 'package:nomego_ecommerce_app/modules/account/widgets/account_button.dart';
+import 'package:nomego_ecommerce_app/modules/admin/model/sales.dart';
+import 'package:nomego_ecommerce_app/modules/admin/view_model/admin_services.dart';
+import 'package:nomego_ecommerce_app/modules/admin/widgets/catagory_products_chart.dart';
 import 'package:nomego_ecommerce_app/common/widgets/loader.dart';
 
 class AnalyticsScreen extends StatefulWidget {

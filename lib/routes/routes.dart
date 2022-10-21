@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/adress/view/address_screen.dart';
 import 'package:nomego_ecommerce_app/models/order.dart';
 import 'package:nomego_ecommerce_app/models/product.dart';
-import 'package:nomego_ecommerce_app/admin/view/add_product_screen.dart';
+import 'package:nomego_ecommerce_app/modules/admin/view/add_product_screen.dart';
 import 'package:nomego_ecommerce_app/auth/view/auth_screens.dart';
 import 'package:nomego_ecommerce_app/common/widgets/bottom_bar.dart';
 import 'package:nomego_ecommerce_app/home_/view/catagory_deals_screen.dart';

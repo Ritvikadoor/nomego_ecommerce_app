@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/account/widgets/below_app.dart';
-import 'package:nomego_ecommerce_app/account/widgets/orders.dart';
-import 'package:nomego_ecommerce_app/account/widgets/top_button.dart';
-import 'package:nomego_ecommerce_app/admin/view/orders.dart';
+import 'package:nomego_ecommerce_app/modules/account/widgets/below_app.dart';
+import 'package:nomego_ecommerce_app/modules/account/widgets/orders.dart';
+import 'package:nomego_ecommerce_app/modules/account/widgets/top_button.dart';
+import 'package:nomego_ecommerce_app/modules/admin/view/orders.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 
 class AccountScreen extends StatelessWidget {

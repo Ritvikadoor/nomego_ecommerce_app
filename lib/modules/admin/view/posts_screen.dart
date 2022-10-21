@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/account/widgets/single_product.dart';
+import 'package:nomego_ecommerce_app/modules/account/widgets/single_product.dart';
 import 'package:nomego_ecommerce_app/models/product.dart';
-import 'package:nomego_ecommerce_app/admin/view/add_product_screen.dart';
-import 'package:nomego_ecommerce_app/admin/view_model/admin_services.dart';
+import 'package:nomego_ecommerce_app/modules/admin/view/add_product_screen.dart';
+import 'package:nomego_ecommerce_app/modules/admin/view_model/admin_services.dart';
 import 'package:nomego_ecommerce_app/common/widgets/loader.dart';
 import 'package:provider/provider.dart';
 

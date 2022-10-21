@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/account/view_model/account_services.dart';
-import 'package:nomego_ecommerce_app/account/widgets/account_button.dart';
+import 'package:nomego_ecommerce_app/modules/account/view_model/account_services.dart';
+import 'package:nomego_ecommerce_app/modules/account/widgets/account_button.dart';
 
 class TopButtons extends StatelessWidget {
   const TopButtons({Key? key}) : super(key: key);

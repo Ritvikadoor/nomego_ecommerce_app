@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/account/view/account_screens.dart';
-import 'package:nomego_ecommerce_app/admin/view/analytics_screen.dart';
-import 'package:nomego_ecommerce_app/admin/view/orders.dart';
-import 'package:nomego_ecommerce_app/admin/view/posts_screen.dart';
+import 'package:nomego_ecommerce_app/modules/account/view/account_screens.dart';
+import 'package:nomego_ecommerce_app/modules/admin/view/analytics_screen.dart';
+import 'package:nomego_ecommerce_app/modules/admin/view/orders.dart';
+import 'package:nomego_ecommerce_app/modules/admin/view/posts_screen.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 
 class AdminScreen extends StatefulWidget {

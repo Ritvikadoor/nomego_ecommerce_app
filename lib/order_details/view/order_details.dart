@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:nomego_ecommerce_app/admin/view_model/admin_services.dart';
+import 'package:nomego_ecommerce_app/modules/admin/view_model/admin_services.dart';
 import 'package:nomego_ecommerce_app/common/widgets/custom_button.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/models/order.dart';

@@ -78,7 +78,7 @@ class _AddressScreenState extends State<AddressScreen> {
           address: addressToBeUsed,
           totalSum: double.parse(widget.totalAmount),
         );
-        log("some data recived");
+        log("some data recieved");
       } else {
         throw Exception('Please enter all the values!');
       }
