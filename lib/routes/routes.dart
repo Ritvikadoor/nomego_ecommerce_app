@@ -7,7 +7,7 @@ import 'package:nomego_ecommerce_app/modules/auth/view/auth_screens.dart';
 import 'package:nomego_ecommerce_app/common/widgets/bottom_bar.dart';
 import 'package:nomego_ecommerce_app/modules/home_/view/catagory_deals_screen.dart';
 import 'package:nomego_ecommerce_app/modules/home_/view/home_screen.dart';
-import 'package:nomego_ecommerce_app/order_details/view/order_details.dart';
+import 'package:nomego_ecommerce_app/modules/order_details/view/order_details.dart';
 import 'package:nomego_ecommerce_app/modules/product_details/view/product_details.dart';
 import 'package:nomego_ecommerce_app/modules/search_screen/view/search_screen.dart';
 
