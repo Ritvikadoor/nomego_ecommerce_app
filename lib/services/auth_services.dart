@@ -9,7 +9,7 @@ import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/constants/utils.dart';
 import 'package:nomego_ecommerce_app/modules/models/user.dart';
 import 'package:nomego_ecommerce_app/providers/users_providers.dart';
-import 'package:nomego_ecommerce_app/splash_screen/view/splash.dart';
+import 'package:nomego_ecommerce_app/modules/splash_screen/view/splash.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

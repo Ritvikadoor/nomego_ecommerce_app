@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/splash_screen/view/get_started_two.dart';
+import 'package:nomego_ecommerce_app/modules/splash_screen/view/get_started_two.dart';
 
 class GetStarted extends StatelessWidget {
   const GetStarted({super.key});
