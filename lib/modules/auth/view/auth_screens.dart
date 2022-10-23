@@ -1,10 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/modules/auth/controllers/signin_controller.dart';
-import 'package:nomego_ecommerce_app/modules/auth/view/signin.dart';
-import 'package:nomego_ecommerce_app/common/widgets/custom_button.dart';
-import 'package:nomego_ecommerce_app/common/widgets/custom_textfield.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/modules/auth/widgets/signup_field.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +16,7 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: GlobalVariables.greyBackgroundCOlor,
       body: SafeArea(
         child: Padding(

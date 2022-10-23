@@ -45,4 +45,7 @@ class GlobalVariables {
   final SizedBox h20 = const SizedBox(
     height: 20,
   );
+  final SizedBox h50 = const SizedBox(
+    height: 50,
+  );
 }
