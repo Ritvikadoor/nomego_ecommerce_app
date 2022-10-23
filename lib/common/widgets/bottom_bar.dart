@@ -101,9 +101,10 @@ class _BottomBarState extends State<BottomBar> {
                 ),
               ),
               child: Badge(
-                elevation: 0,
+                stackFit: StackFit.passthrough,
+                elevation: 5,
                 badgeContent: Text(userCartLen.toString()),
-                badgeColor: Colors.white,
+                badgeColor: Color.fromARGB(255, 247, 213, 213),
                 child: const Icon(
                   Icons.shopping_cart_outlined,
                 ),

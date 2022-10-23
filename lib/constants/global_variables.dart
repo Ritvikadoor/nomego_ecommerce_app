@@ -42,4 +42,7 @@ class GlobalVariables {
       'image': 'assets/images/fashion.jpg',
     },
   ];
+  final SizedBox h20 = const SizedBox(
+    height: 20,
+  );
 }
