@@ -26,15 +26,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(60),
-          child: AppBar(
-            flexibleSpace: Container(
-              decoration: const BoxDecoration(
-                color: Colors.purple,
-              ),
-            ),
-            title: Row(
+        backgroundColor: Colors.black,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+          child: ListView(children: [
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
@@ -88,23 +84,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                Container(
-                  color: Colors.transparent,
-                  height: 42,
-                  margin: const EdgeInsets.symmetric(horizontal: 10),
-                  child: const Icon(Icons.mic, color: Colors.black, size: 25),
-                ),
               ],
             ),
-          ),
-        ),
-        body: ListView(children: const [
-          AddressBox(),
-          CarouselImage(),
-          SizedBox(height: 10),
-          TopCategories(),
-          DealOfDay(),
-          // SideScroll()
-        ]));
+            // AddressBox(),
+            // CarouselImage(),
+            // SizedBox(height: 10),
+            // TopCategories(),
+            // DealOfDay(),
+            // SideScroll()
+          ]),
+        ));
   }
 }

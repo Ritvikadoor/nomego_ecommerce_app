@@ -15,7 +15,7 @@ class SignInController extends ChangeNotifier {
   final TextEditingController nameController = TextEditingController();
 
   void signUpUser(BuildContext context) {
-    log('signupbuttton presssed');
+    // log('signupbuttton presssed');
     authService.signUpUser(
       context: context,
       email: emailController.text,
@@ -26,7 +26,7 @@ class SignInController extends ChangeNotifier {
   }
 
   void signInUser(BuildContext context) {
-    log('signinbuttton presssed');
+    // log('signinbuttton presssed');
     authService.signInUser(
       context: context,
       email: emailController.text,

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nomego_ecommerce_app/modules/auth/controllers/signin_controller.dart';
-import 'package:nomego_ecommerce_app/common/widgets/custom_button.dart';
-import 'package:nomego_ecommerce_app/common/widgets/custom_textfield.dart';
 import 'package:nomego_ecommerce_app/constants/global_variables.dart';
 import 'package:nomego_ecommerce_app/modules/auth/widgets/image_ui_signin.dart';
 import 'package:nomego_ecommerce_app/modules/auth/widgets/signin_field.dart';
-import 'package:provider/provider.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
