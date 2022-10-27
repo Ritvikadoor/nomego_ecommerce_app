@@ -86,12 +86,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            // AddressBox(),
-            // CarouselImage(),
-            // SizedBox(height: 10),
-            // TopCategories(),
-            // DealOfDay(),
-            // SideScroll()
+            const AddressBox(),
+            const CarouselImage(),
+            const SizedBox(height: 10),
+            const TopCategories(),
+            const DealOfDay(),
+            const SideScroll()
           ]),
         ));
   }
