@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:nomego_ecommerce_app/modules/models/user.dart';
 
