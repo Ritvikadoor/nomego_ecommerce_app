@@ -40,9 +40,9 @@ class _BottomBarState extends State<BottomBar> {
       body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _page,
-        selectedItemColor: Color.fromARGB(255, 156, 39, 176),
-        unselectedItemColor: GlobalVariables.unselectedNavBarColor,
-        backgroundColor: GlobalVariables.backgroundColor,
+        selectedItemColor: Colors.green,
+        unselectedItemColor: Colors.green,
+        backgroundColor: Colors.white,
         iconSize: 28,
         onTap: updatePage,
         items: [

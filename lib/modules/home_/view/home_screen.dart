@@ -7,6 +7,8 @@ import 'package:nomego_ecommerce_app/modules/home_/widgets/side_scroll_product.d
 import 'package:nomego_ecommerce_app/modules/home_/widgets/top_categories.dart';
 import 'package:nomego_ecommerce_app/modules/models/product.dart';
 import 'package:nomego_ecommerce_app/modules/search_screen/view/search_screen.dart';
+import 'package:nomego_ecommerce_app/providers/users_providers.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -25,66 +27,63 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UsersProvider>(context).user;
+
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.greenAccent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Text("Hey ${user.name}"),
+        ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: ListView(children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Container(
-                    height: 42,
-                    margin: const EdgeInsets.only(left: 15),
-                    child: Material(
-                      borderRadius: BorderRadius.circular(7),
-                      elevation: 1,
-                      child: TextFormField(
-                        onFieldSubmitted: navigateToSearchScreen,
-                        decoration: InputDecoration(
-                          prefixIcon: InkWell(
-                            onTap: () {},
-                            child: const Padding(
-                              padding: EdgeInsets.only(
-                                left: 6,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 42,
+                      margin: const EdgeInsets.only(left: 15),
+                      child: Material(
+                        borderRadius: BorderRadius.circular(7),
+                        elevation: 1,
+                        child: TextFormField(
+                          onFieldSubmitted: navigateToSearchScreen,
+                          decoration: InputDecoration(
+                            prefixIcon: InkWell(
+                              onTap: () {},
+                              child: const Padding(
+                                padding: EdgeInsets.only(
+                                  left: 6,
+                                ),
+                                child: Icon(
+                                  Icons.search,
+                                  color: Colors.green,
+                                  size: 23,
+                                ),
                               ),
-                              child: Icon(
-                                Icons.search,
-                                color: Colors.black,
-                                size: 23,
-                              ),
                             ),
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          contentPadding: const EdgeInsets.only(top: 10),
-                          border: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(7),
+                            filled: true,
+                            fillColor: Colors.white,
+                            contentPadding: const EdgeInsets.only(top: 10),
+                            border: InputBorder.none,
+                            label: Text('Search'),
+                            hintStyle: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 17,
+                              color: Colors.green.shade900,
                             ),
-                            borderSide: BorderSide.none,
-                          ),
-                          enabledBorder: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(7),
-                            ),
-                            borderSide: BorderSide(
-                              color: Colors.black38,
-                              width: 1,
-                            ),
-                          ),
-                          hintText: 'Search',
-                          hintStyle: const TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 17,
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             const AddressBox(),
             const CarouselImage(),

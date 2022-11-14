@@ -28,12 +28,15 @@ class SplashScreen extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        color: Colors.purple,
-        child: const Center(
-            child: Text(
-          "NOMOGO",
-        )),
-      ),
+          color: Colors.greenAccent,
+          child: const Center(
+              child: SizedBox(
+            width: 200,
+            height: 200,
+            child: Image(
+              image: AssetImage("assets/images/g-company-removebg-preview.png"),
+            ),
+          ))),
     );
   }
 }

@@ -10,8 +10,7 @@ class AddressBox extends StatelessWidget {
     final user = Provider.of<UsersProvider>(context).user;
 
     return Container(
-      height: 40,
-      decoration: BoxDecoration(color: Colors.purple.shade400),
+      height: 30,
       padding: const EdgeInsets.only(left: 10),
       child: Row(
         children: [
@@ -31,16 +30,6 @@ class AddressBox extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(
-              left: 5,
-              top: 2,
-            ),
-            child: Icon(
-              Icons.arrow_drop_down_outlined,
-              size: 18,
-            ),
-          )
         ],
       ),
     );

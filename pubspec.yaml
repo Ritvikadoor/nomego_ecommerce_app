@@ -77,6 +77,13 @@ flutter:
     - assets/images/nmg.png
     - assets/images/dd425f8e-a0e3-47cc-917c-d4affdb8b7bf-removebg-preview.png
     - assets/images/d544ba41-973c-4c06-8b9a-d0fb7a8cd894-removebg-preview.png
+    - assets/images/g-company-removebg-preview.png
+    - assets/images/banneroffervege.png
+    - assets/images/banner_grocery.jpg
+    - assets/images/banner_vege_offer.png
+    - assets/images/important _grocery_banner.webp
+    - assets/images/india_online_grocery_store.jpg
+    - assets/images/bgimage.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

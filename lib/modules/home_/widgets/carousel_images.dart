@@ -11,10 +11,16 @@ class CarouselImage extends StatelessWidget {
       items: GlobalVariables.carouselImages.map(
         (i) {
           return Builder(
-            builder: (BuildContext context) => Image.network(
-              i,
-              fit: BoxFit.cover,
-              height: 200,
+            builder: (BuildContext context) => Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  i,
+                  fit: BoxFit.cover,
+                  height: 200,
+                ),
+              ),
             ),
           );
         },

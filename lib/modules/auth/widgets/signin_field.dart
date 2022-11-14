@@ -28,6 +28,7 @@ class SignInField extends StatelessWidget {
               CustomTextField(
                 controller: value.passwordController,
                 hintText: 'Password',
+                obscure: true,
               ),
               const SizedBox(height: 10),
               Padding(
